@@ -2,7 +2,11 @@
 module.exports = {
 	content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		extend: {},
+		extend: {
+			backgroundImage: {
+				'keyboard-img': "url('/setup-keyborad.jpeg')",
+			},
+		},
 	},
 	plugins: [],
 };
