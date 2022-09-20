@@ -37,6 +37,7 @@
 	}
 
 	.nav {
-		@apply sticky bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900  w-full z-20 top-0 left-0 dark:border-gray-600 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200;
+		/*backdrop-blur-lg; w-full*/
+		@apply fixed bg-white px-2 sm:px-4 lg:py-1 py-3 dark:bg-gray-900 z-20 top-0 right-4 left-4 dark:border-gray-600 backdrop-filter  bg-opacity-10 border-b border-gray-200;
 	}
 }
