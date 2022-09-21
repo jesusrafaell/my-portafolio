@@ -34,31 +34,22 @@ function Navbar() {
 					id='navbar-sticky'>
 					<ul className='flex flex-col p-4 mt-4rounded-lg border border-white-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-white-800 md:dark:bg-white-900 dark:border-white-700'>
 						<li className='h6'>
-							<a
-								href='#'
-								className='block py-2 pr-4 pl-3 text-white bg-black-700 rounded md:bg-transparent md:text-black-700 md:p-0 dark:text-white'
-								aria-current='page'>
+							<a href='#' className='nav-item' aria-current='page'>
 								Home
 							</a>
 						</li>
 						<li className='h6'>
-							<a
-								href='#'
-								className='block py-2 pr-4 pl-3 text-white rounded hover:bg-white-100 md:hover:bg-transparent md:hover:text-black-700 md:p-0 md:dark:hover:text-white dark:text-white-400 dark:hover:bg-white-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-white-700'>
+							<a href='#' className='nav-item' aria-current='page'>
 								About
 							</a>
 						</li>
 						<li className='h6'>
-							<a
-								href='#'
-								className='block py-2 pr-4 pl-3 text-white rounded hover:bg-white-100 md:hover:bg-transparent md:hover:text-black-700 md:p-0 md:dark:hover:text-white dark:text-white-400 dark:hover:bg-white-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-white-700'>
+							<a href='#' className='nav-item' aria-current='page'>
 								Developments
 							</a>
 						</li>
 						<li className='h6'>
-							<a
-								href='#'
-								className='block py-2 pr-4 pl-3 text-white rounded hover:bg-white-100 md:hover:bg-transparent md:hover:text-black-700 md:p-0 md:dark:hover:text-white dark:text-white-400 dark:hover:bg-white-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'>
+							<a href='#' className='nav-item' aria-current='page'>
 								Contact
 							</a>
 						</li>

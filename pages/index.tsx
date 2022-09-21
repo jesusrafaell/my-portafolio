@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import About from '../components/About';
 import Main from '../components/Main';
 
 const Home: NextPage = () => {
@@ -12,7 +13,10 @@ const Home: NextPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<Main />
+			<section className='h:bg-[#111] w-screen h-screen'>
+				<Main />
+			</section>
+			<About />
 
 			<button>
 				<Image src='/vercel.svg' alt='Vercel Logo' width={72} height={16} />
