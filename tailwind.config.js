@@ -5,6 +5,7 @@ module.exports = {
 		extend: {
 			backgroundImage: {
 				'keyboard-img': "url('/setup-keyborad.jpeg')",
+				'custom-img': "url('/setup-keyborad.jpeg')",
 			},
 		},
 	},

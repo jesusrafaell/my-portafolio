@@ -13,7 +13,7 @@ function Main() {
 			// scaleY: 0.8,
 			scale: 0.4,
 			y: '-40px',
-			x: '40px',
+			x: '20px',
 			//borderRadius: '50%',
 			//rotation: '70',
 			duration: 1,
@@ -35,11 +35,11 @@ function Main() {
 	useEffect(() => {}, []);
 
 	return (
-		<div className='h-screen w-screen'>
+		<div className='h-screen w-screen flex items-center justify-center h-screen mb-12 bg-fixed bg-center bg-cover custom-img'>
 			<div className='-z-[1] absolute bg-[#111] w-screen h-screen'>
 				<div className='bg-main-img absolute' ref={bgRef}></div>
 			</div>
-			<div id='home' className='w-full h-screen text-center'>
+			<div id='home' className='w-full h-screen text-center rounded-xl '>
 				<div className='w-full h-full mx-auto p-2 flex justify-center items-center'>
 					<div>
 						<p className='uppercase text-sm tracking-widest md:text-gray-100 lg:text-gray-400'>
