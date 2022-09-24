@@ -35,7 +35,7 @@ function Main() {
 	useEffect(() => {}, []);
 
 	return (
-		<div className='h-screen w-screen flex items-center justify-center h-screen mb-12 bg-fixed bg-center bg-cover custom-img'>
+		<div className='h-screen w-screen flex items-center justify-center mb-12 bg-fixed bg-center bg-cover custom-img'>
 			<div className='-z-[1] absolute bg-[#111] w-screen h-screen'>
 				<div className='bg-main-img absolute' ref={bgRef}></div>
 			</div>
