@@ -1,14 +1,9 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import classNames from '../utilis/classNames';
 
 function Navbar() {
 	const [navScroll, setNavScroll] = useState(false);
-
-	function classNames(...clasess: any[]) {
-		const aux = clasess.filter(Boolean).join(' ');
-		console.log(aux);
-		return aux;
-	}
 
 	useEffect(() => {
 		const handleNavScroll = () => {
@@ -20,9 +15,6 @@ function Navbar() {
 
 	return (
 		<nav className={classNames(navScroll ? 'nav-scroll' : '', 'nav')}>
-			{/*
-		<nav className={`transition ${navScroll ? 'nav nav-scroll' : 'nav'}`}>
-		*/}
 			<div className='container flex flex-wrap justify-between items-center mx-auto'>
 				<Link href='/'>
 					<span className='flex items-center cursor-pointer self-center text-xl font-semibold whitespace-nowrap text-white'>
