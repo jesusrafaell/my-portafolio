@@ -3,3 +3,11 @@
 		@apply w-full h-full bg-keyboard-img blur-sm lg:blur-none lg:brightness-50 bg-no-repeat bg-cover bg-right-bottom;
 	}
 }
+
+/*
+ @layer utilities {
+ 	.clip-polygon {
+ 		clip-path: polygon(50%, 10%, 60^, 50%, 90%, 40%, 50%);
+ 	}
+ }
+ */

@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '~tailwindcss/base';
+@import '~tailwindcss/components';
+@import '~tailwindcss/utilities';
+
+@import './main.scss';
 
 @layer base {
 	body {
@@ -36,9 +38,15 @@
 		@apply hover:line-through hover:animate-pulse;
 	}
 
+	//navabar
 	.nav {
 		/*backdrop-blur-lg; w-full*/
-		@apply fixed bg-white px-2 sm:px-4 lg:py-1 py-3 dark:bg-gray-900 z-20 top-0 right-4 left-4 dark:border-gray-600 backdrop-filter  bg-opacity-10 border-b border-gray-200;
+		@apply fixed bg-white px-2 sm:px-4 lg:py-1 py-3 dark:bg-gray-900 z-20 top-0 right-4 left-4;
+		@apply dark:border-gray-600 backdrop-filter bg-opacity-0 border-b border-gray-200 transition p-2;
+	}
+
+	.nav-scroll {
+		@apply p-1 bg-opacity-20;
 	}
 
 	.nav-item {
@@ -46,11 +54,5 @@
 		block py-2 pr-4 pl-3 text-white rounded hover:bg-white-100 md:hover:bg-transparent md:hover:text-black-700 md:p-0 md:dark:hover:text-white dark:text-white-400 dark:hover:bg-white-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-white-700
 		*/
 		@apply block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-100;
-	}
-}
-
-@layer utilities {
-	.clip-polygon {
-		clip-path: polygon(50%, 10%, 60^, 50%, 90%, 40%, 50%);
 	}
 }
