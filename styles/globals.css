@@ -47,10 +47,6 @@
 		*/
 		@apply block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-100;
 	}
-
-	.bg-main-img {
-		@apply w-full h-full bg-keyboard-img blur-sm lg:blur-none lg:brightness-50 h-screen w-screen bg-no-repeat bg-cover bg-right-bottom;
-	}
 }
 
 @layer utilities {
