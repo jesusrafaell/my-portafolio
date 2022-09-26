@@ -3,8 +3,14 @@
 @import '~tailwindcss/utilities';
 
 @import './main.scss';
+@import './cursor//customCursor.scss';
 
 @layer base {
+	* {
+		@apply cursor-none;
+		cursor: none;
+	}
+
 	body {
 		@apply bg-[#ecf0f3] text-[#1f2937] tracking-wide;
 	}
@@ -27,7 +33,7 @@
 	}
 
 	li {
-		@apply cursor-pointer;
+		//@apply cursor-pointer;
 	}
 
 	button {
