@@ -7,21 +7,15 @@ function Main() {
 	const t1 = gsap.timeline({});
 
 	const rotateImg = async () => {
-		console.log('rotate');
 		await t1.to(bgRef.current!, {
-			// scaleX: .5,
-			// scaleY: 0.8,
 			scale: 0.4,
 			y: '-40px',
 			x: '20px',
-			//borderRadius: '50%',
-			//rotation: '70',
 			duration: 1,
 		});
 	};
 
 	const rotateImgRevert = async () => {
-		console.log('revert');
 		await t1.to(bgRef.current!, {
 			scale: 1,
 			y: 0,
@@ -47,7 +41,7 @@ function Main() {
 						</p>
 						<h1 className='py-4 text-white'>
 							Hi, I&#39;m{' '}
-							<span className='text-cyan-300' onMouseEnter={rotateImg} onMouseLeave={rotateImgRevert}>
+							<span className='text-cyan-300' onMouseOver={rotateImg} onMouseLeave={rotateImgRevert}>
 								Jesus Rafael
 							</span>
 						</h1>

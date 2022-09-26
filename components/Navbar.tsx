@@ -7,7 +7,6 @@ function Navbar() {
 
 	useEffect(() => {
 		const handleNavScroll = () => {
-			console.log('scroll change');
 			setNavScroll(window.scrollY >= 90);
 		};
 		return window.addEventListener('scroll', handleNavScroll);

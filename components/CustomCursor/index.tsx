@@ -24,8 +24,8 @@ const CustomCursor = () => {
 			const mouseY = clientY;
 
 			const rect = secondaryCursor.current!.getBoundingClientRect();
-			console.log('w ', rect.width);
-			console.log('h ', rect.height);
+			// console.log('w ', rect.width);
+			// console.log('h ', rect.height);
 
 			positionRef.current.mouseX = mouseX - secondaryCursor.current!.clientWidth! / 2;
 			positionRef.current.mouseY = mouseY - secondaryCursor.current!.clientHeight! / 2;
