@@ -16,7 +16,7 @@ function Navbar() {
 		<nav className={classNames(navScroll ? 'nav-scroll' : '', 'nav')}>
 			<div className='container flex flex-wrap justify-between items-center mx-auto'>
 				<Link href='/'>
-					<span className='flex items-center cursor-pointer self-center text-xl font-semibold whitespace-nowrap text-white'>
+					<span className='flex items-center self-center text-xl font-semibold whitespace-nowrap text-white'>
 						Jesus Rafaell
 					</span>
 				</Link>

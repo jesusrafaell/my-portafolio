@@ -8,11 +8,10 @@
 @layer base {
 	* {
 		@apply cursor-none;
-		cursor: none;
 	}
 
 	body {
-		@apply bg-[#ecf0f3] text-[#1f2937] tracking-wide;
+		@apply bg-[#ecf0f3] text-[#1f2937] tracking-wide scrollbar-hide;
 	}
 
 	h1,
