@@ -1,9 +1,24 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import CustomCursorContext from './context/CustomCursorContex';
+import React, { useEffect, useRef, useState } from 'react';
+//import CustomCursorContext from './context/CustomCursorContex';
 
 const CustomCursor = () => {
-	const { type } = useContext(CustomCursorContext);
 	const secondaryCursor = useRef<HTMLDivElement>(null);
+
+	const [showCursor, setShowCursor] = useState(true);
+
+	const isMobile = () => {
+		const ua = navigator.userAgent;
+		return /Android|Mobi/i.test(ua);
+	};
+
+	useEffect(() => {
+		setShowCursor(!isMobile());
+		console.log('change size');
+	}, []);
+
+	if (typeof navigator !== 'undefined' && isMobile()) {
+		//console.log('is mobile2');
+	}
 
 	const mainCursor = useRef<HTMLDivElement>(null);
 	const positionRef = useRef({
@@ -24,8 +39,6 @@ const CustomCursor = () => {
 			const mouseY = clientY;
 
 			const rect = secondaryCursor.current!.getBoundingClientRect();
-			// console.log('w ', rect.width);
-			// console.log('h ', rect.height);
 
 			positionRef.current.mouseX = mouseX - secondaryCursor.current!.clientWidth! / 2;
 			positionRef.current.mouseY = mouseY - secondaryCursor.current!.clientHeight! / 2;
@@ -39,6 +52,7 @@ const CustomCursor = () => {
 
 	useEffect(() => {
 		const followMouse = () => {
+			if (!secondaryCursor.current && !secondaryCursor.current!.style) return;
 			positionRef.current.key = requestAnimationFrame(followMouse);
 			const { mouseX, mouseY, destinationX, destinationY, distanceX, distanceY } = positionRef.current;
 			if (!destinationX || !destinationY) {
@@ -59,8 +73,9 @@ const CustomCursor = () => {
 		};
 		followMouse();
 	}, []);
+
 	return (
-		<div>
+		<div style={{ visibility: showCursor ? 'visible' : 'hidden' }}>
 			<div className='main-cursor ' ref={mainCursor}>
 				<div className='main-cursor-background'></div>
 			</div>
