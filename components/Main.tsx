@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
+import jinx from '../public/images/jinx5.jpg';
 
 function Main() {
 	const bgRef = useRef<HTMLDivElement>(null);

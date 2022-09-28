@@ -3,7 +3,8 @@
 @import '~tailwindcss/utilities';
 
 @import './main.scss';
-@import './cursor//customCursor.scss';
+@import './cursor/customCursor.scss';
+@import './Cover3D/cover3d.scss';
 
 @layer base {
 	* {

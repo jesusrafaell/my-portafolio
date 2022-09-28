@@ -16,9 +16,9 @@ const CustomCursor = () => {
 		console.log('change size');
 	}, []);
 
-	if (typeof navigator !== 'undefined' && isMobile()) {
-		//console.log('is mobile2');
-	}
+	// if (typeof navigator !== 'undefined' && isMobile()) {
+	// 	//console.log('is mobile2');
+	// }
 
 	const mainCursor = useRef<HTMLDivElement>(null);
 	const positionRef = useRef({
@@ -38,7 +38,7 @@ const CustomCursor = () => {
 			const mouseX = clientX;
 			const mouseY = clientY;
 
-			const rect = secondaryCursor.current!.getBoundingClientRect();
+			const rect = secondaryCursor.current?.getBoundingClientRect();
 
 			positionRef.current.mouseX = mouseX - secondaryCursor.current!.clientWidth! / 2;
 			positionRef.current.mouseY = mouseY - secondaryCursor.current!.clientHeight! / 2;
