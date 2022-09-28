@@ -10,7 +10,7 @@ interface ISlide {
 	title: string;
 	description: JSX.Element;
 	image: string;
-	value: any;
+	value: 'string';
 }
 
 const slides: ISlide[] = [
