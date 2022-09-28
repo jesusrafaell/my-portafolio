@@ -1,16 +1,10 @@
-import entradaMilpagos from 'images/entrada1000Pagos.jpeg';
-import entradaCarropago from 'images/fondoCarropago.jpeg';
-import entradaLibrepago from 'images/fondoLibrepago.jpeg';
-import logo1000pagos from 'images/Logo-1000Pagos-Horizontal.png';
-import logoCarropago from 'images/logo-carropago.png';
-import logoLibrepago from 'images/logo_librePago.png';
-import { FC, useContext, useEffect, useReducer, useRef } from 'react';
+import React, { CSSProperties, FC, useEffect, useReducer, useRef } from 'react';
 
 interface ISlide {
 	title: string;
 	description: JSX.Element;
 	image: string;
-	value: 'string';
+	value: string;
 }
 
 const slides: ISlide[] = [
@@ -138,10 +132,12 @@ const Slide = ({ slide, offset }: any) => {
 			ref={ref}
 			className='slide'
 			data-active={active}
-			style={{
-				'--offset': offset > 1 ? 1 : offset < -1 ? -1 : offset,
-				'--dir': offset === 0 ? 0 : offset > 0 ? 1 : -1,
-			}}>
+			style={
+				{
+					'--offset': offset > 1 ? 1 : offset < -1 ? -1 : offset,
+					'--dir': offset === 0 ? 0 : offset > 0 ? 1 : -1,
+				} as CSSProperties
+			}>
 			<div
 				className='slideBackground'
 				style={{

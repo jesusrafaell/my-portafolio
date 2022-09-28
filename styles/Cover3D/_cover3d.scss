@@ -17,8 +17,8 @@
 		position: absolute;
 		font-size: 7rem;
 		width: 5rem;
-		height: auto;
-		top: 30%;
+		height: 5rem;
+		top: 40%;
 		transition: opacity 0.3s;
 		opacity: 0.5;
 		z-index: 5;
@@ -32,10 +32,10 @@
 		}
 
 		&:first-child {
-			left: 30%;
+			left: 10%;
 		}
 		&:last-child {
-			right: 30%;
+			right: 10%;
 		}
 	}
 }
@@ -45,16 +45,16 @@
 }
 
 .slideImg {
-	width: 30vw;
-	height: 30vw;
+	width: 40vw;
+	height: 40vw;
 	position: absolute;
 	background-size: cover;
 	//filter: blur(4px);
 }
 
 .slideContent {
-	width: 30vw;
-	height: 50vh;
+	width: 40vw;
+	height: 60vh;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -121,7 +121,7 @@
 
 	.slideBackground {
 		opacity: 0.2;
-		transform: none;
+		//transform: none;
 	}
 
 	.slideContentInner {
