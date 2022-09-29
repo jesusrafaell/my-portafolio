@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, useEffect, useReducer, useRef } from 'react';
+import React, { CSSProperties, FC, useEffect, useReducer, useRef, useState } from 'react';
 
 interface ISlide {
 	title: string;
@@ -146,17 +146,10 @@ const Slide = ({ slide, offset }: any) => {
 			<div
 				className='slideContent'
 				style={{
-					position: 'relative',
+					backgroundImage: `url('${slide.image}')`,
 				}}>
-				<div
-					className='slideImg'
-					style={{
-						backgroundImage: `url('${slide.image}')`,
-					}}></div>
-				<div className='slideContentInner'>
-					{/* {slide.description} */}
-					<h2 className='cardTitle'>{slide.title}</h2> *
-				</div>
+				{/* {slide.description} */}
+				<h2 className='cardTitle'>{slide.title}</h2> *
 			</div>
 		</div>
 	);
@@ -164,14 +157,25 @@ const Slide = ({ slide, offset }: any) => {
 
 const CardSlider: FC = () => {
 	const [state, dispatch] = useReducer(slidesReducer, initialState);
+
+	const [renderNow, setRenderNow] = useState(false);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setRenderNow(true);
+		}, 1500);
+	});
+
+	//if (!renderNow) return null;
+
 	return (
 		<div className='slides'>
 			<button onClick={() => dispatch({ type: 'PREV' })}>‹</button>
-
-			{slides.map((slide, i) => {
-				let offset = state.slideIndex - i;
-				return <Slide slide={slide} offset={offset} key={i} />;
-			})}
+			{slides.length &&
+				slides.map((slide, i) => {
+					let offset = state.slideIndex - i;
+					return <Slide slide={slide} offset={offset} key={i} />;
+				})}
 			<button onClick={() => dispatch({ type: 'NEXT' })}>›</button>
 		</div>
 	);

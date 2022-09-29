@@ -2,7 +2,7 @@ import Cover3D from './Developments';
 
 function Development() {
 	return (
-		<div className='flex p-2 bg-black flex-col items-center h-screen w-screen justity-center'>
+		<div className='flex bg-black items-center justify-center w-screen h-screen'>
 			<Cover3D />
 		</div>
 	);

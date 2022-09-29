@@ -21,10 +21,6 @@ const Home: NextPage = () => {
 			<div className='relative'>
 				<Development />
 			</div>
-
-			<button>
-				<Image src='/vercel.svg' alt='Vercel Logo' width={72} height={16} />
-			</button>
 		</div>
 	);
 };
