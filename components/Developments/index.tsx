@@ -1,10 +1,14 @@
+import Image from 'next/image';
 import React, { CSSProperties, FC, useEffect, useReducer, useRef, useState } from 'react';
+import logoNest from '../../public/images/nest-logo.svg';
+import logoReact from '../../public/images/react-logo.svg';
 
 interface ISlide {
 	title: string;
 	description: JSX.Element;
 	image: string;
 	value: string;
+	logoTech: any;
 }
 
 const slides: ISlide[] = [
@@ -20,6 +24,7 @@ const slides: ISlide[] = [
 		image:
 			'https://images.unsplash.com/photo-1571771019784-3ff35f4f4277?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ',
 		value: 'librepago',
+		logoTech: logoNest,
 	},
 	{
 		title: 'API CarroPago',
@@ -33,6 +38,7 @@ const slides: ISlide[] = [
 		image:
 			'https://images.unsplash.com/photo-1566522650166-bd8b3e3a2b4b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ',
 		value: 'carropago',
+		logoTech: logoNest,
 	},
 	{
 		title: 'BackOffice',
@@ -46,6 +52,7 @@ const slides: ISlide[] = [
 		image:
 			'https://images.unsplash.com/photo-1581836499506-4a660b39478a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ',
 		value: 'backoffice',
+		logoTech: logoReact,
 	},
 	{
 		title: 'Reporte Dinamico',
@@ -59,6 +66,7 @@ const slides: ISlide[] = [
 		image:
 			'https://images.unsplash.com/photo-1571771019784-3ff35f4f4277?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ',
 		value: 'Reporte_Dinamico',
+		logoTech: logoReact,
 	},
 ];
 
@@ -150,6 +158,9 @@ const Slide = ({ slide, offset }: any) => {
 				}}>
 				{/* {slide.description} */}
 				<h2 className='cardTitle'>{slide.title}</h2> *
+				<div className='logo-tech'>
+					<Image src={slide.logoTech} />
+				</div>
 			</div>
 		</div>
 	);

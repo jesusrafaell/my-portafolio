@@ -14,13 +14,15 @@ const Home: NextPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<section className='h:bg-[#111] w-screen h-screen'>
+			<section id='main' className='h:bg-[#111] w-screen h-screen'>
 				<Main />
 			</section>
-			<About />
-			<div className='relative'>
+			<section id='about'>
+				<About />
+			</section>
+			<section id='dev' className='relative'>
 				<Development />
-			</div>
+			</section>
 		</div>
 	);
 };

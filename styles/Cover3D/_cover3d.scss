@@ -52,6 +52,7 @@
 }
 
 .slideContent {
+	position: relative;
 	width: 30vw;
 	height: 40vw;
 	background-size: cover;
@@ -137,4 +138,13 @@
 			transform: perspective(1000px) rotateY(calc(var(--x) * 45deg)) rotateX(calc(var(--y) * -45deg));
 		}
 	}
+}
+
+.logo-tech {
+	position: absolute;
+	left: 0%;
+	top: 10%;
+	width: 200px;
+	transform: perspective(1000px) translateX(calc(100% * var(--offset))) rotateY(calc(-45deg * var(--dir)));
+	transform-style: preserve-3d;
 }
