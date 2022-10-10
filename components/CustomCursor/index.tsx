@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 //import CustomCursorContext from './context/CustomCursorContex';
 
 const CustomCursor = () => {
-	const secondaryCursor = useRef<HTMLElement | HTMLDivElement>(null);
+	const secondaryCursor = useRef<HTMLDivElement>(null);
 
 	const [showCursor, setShowCursor] = useState(true);
 
