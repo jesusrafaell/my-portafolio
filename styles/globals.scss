@@ -49,15 +49,24 @@
 	}
 
 	.active {
-		@apply font-bold;
+		//@apply font-bold;
+		&::before {
+			@apply absolute content-[''] -bottom-1 h-1 w-full bg-[#ffffff] transition;
+		}
 	}
 
 	.nav-scroll {
 		@apply p-1 bg-opacity-20;
 	}
 
+	.nav-content {
+		li {
+			@apply relative;
+		}
+	}
+
 	.nav-item {
-		@apply block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-100;
+		@apply block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-100 font-normal;
 		@apply hover:line-through hover:animate-pulse;
 	}
 }

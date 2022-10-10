@@ -42,9 +42,9 @@ function Main() {
 						</p>
 						<h1 className='py-4 text-white'>
 							Hi, I&#39;m{' '}
-							<span className='text-cyan-300' onMouseOver={rotateImg} onMouseLeave={rotateImgRevert}>
+							{/* <span className='text-cyan-300' onMouseOver={rotateImg} onMouseLeave={rotateImgRevert}>
 								Jesus Rafael
-							</span>
+							</span> */}
 						</h1>
 						<h1 className='py-2 text-white'>A Web Developer</h1>
 						<p className='py-4 text-gray-400 sm:max-w-[70%] m-auto'>

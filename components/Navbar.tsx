@@ -43,7 +43,7 @@ function Navbar() {
 				<div
 					className='hidden justify-between items-center w-full md:flex md:w-auto md:order-1'
 					id='navbar-sticky'>
-					<ul className='flex flex-col p-4 mt-4rounded-lg border border-white-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-white-800 md:dark:bg-white-900 dark:border-white-700'>
+					<ul className='flex flex-col p-4 mt-4rounded-lg border border-white-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-white-800 md:dark:bg-white-900 dark:border-white-700 nav-content'>
 						<li>
 							<Link to='main' smooth offset={0} duration={500} className='nav-item'>
 								Home
