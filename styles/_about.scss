@@ -1,0 +1,38 @@
+@layer base {
+	.wrapper {
+		@apply flex w-full h-full justify-center items-center px-0 py-10 overflow-hidden;
+
+		h1 {
+			@apply block text-6xl font-extrabold text-[#E2E2E2];
+		}
+
+		p {
+			@apply block w-[90%] text-sm text-[#E2E2E2];
+		}
+	}
+
+	.cols {
+		@apply w-3/6;
+	}
+
+	.topline {
+		@apply block relative text-2xl tracking-widest;
+
+		&::after {
+			@apply absolute content-[''] h-1 w-10 bottom-0 bg-[#F63030];
+		}
+	}
+
+	.multiText {
+		@apply text-[#F63030] capitalize;
+	}
+
+	.btns {
+		@apply w-full relative left-[120px];
+
+		button {
+			@apply cursor-none text-[20px] font-medium text-[#F63030] bg-[#3d535f] px-2 py-1 m-4 tracking-wider capitalize shadow-sm shadow-white;
+			@apply hover:bg-[#F63030] hover:text-[#3d535f];
+		}
+	}
+}

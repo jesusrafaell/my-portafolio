@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 			<section id='main' className='h:bg-[#111] w-screen h-screen'>
 				<Main />
 			</section>
-			<section id='about'>
+			<section id='about' className='h-screen w-screen'>
 				<About />
 			</section>
 			<section id='dev' className='relative'>

@@ -1,28 +1,26 @@
-import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
+import photo from '../public/images/jinx5.jpg';
+import splash from '../public/images/jinx3.jpg';
 
 function About() {
 	return (
-		<div className='h-screen w-screen bg-gray-700'>
-			<div id='home' className='w-full h-screen text-center'>
-				<div className='w-full h-full mx-auto p-2 flex justify-left items-center'>
-					<div>
-						<p className='uppercase text-sm tracking-widest md:text-gray-100 lg:text-gray-400'>
-							LET&#39;S BUILD SOMETHING TOGETHER
-						</p>
-						<p className='py-4 text-gray-400 sm:max-w-[70%] m-auto'>
-							Hi, I&#39;m <span className='text-cyan-300'>Jesus Rafael</span>
-							I’m focused on building web applications while learning new technologies. Hi, I&#39;m{' '}
-							<span className='text-cyan-300'>Jesus Rafael</span>
-							I’m focused on building web applications while learning new technologies.
-						</p>
-						<p className='py-4 text-gray-400 sm:max-w-[70%] m-auto'>
-							Hi, I&#39;m <span className='text-cyan-300'>Jesus Rafael</span>
-							I’m focused on building web applications while learning new technologies. Hi, I&#39;m{' '}
-							<span className='text-cyan-300'>Jesus Rafael</span>
-							I’m focused on building web applications while learning new technologies.
-						</p>
-					</div>
+		<div className='wrapper'>
+			<div className='cols cols0'>
+				<span className='topline'>Hello</span>
+				<h1>
+					{"I'm "}
+					<span className='multiText'>Coder </span>
+				</h1>
+				<p>I’m focused on building web applications while learning new technologies.</p>
+				<div className='btns'>
+					<button>Download CV</button>
+				</div>
+			</div>
+			<div className='cols cols1'>
+				<div className='imgbox'>
+					<Image id='splash' src={splash} alt='' />
+					<Image src={photo} alt='Jesus' />
 				</div>
 			</div>
 		</div>
