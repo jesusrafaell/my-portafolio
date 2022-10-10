@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 //import CustomCursorContext from './context/CustomCursorContex';
 
 const CustomCursor = () => {
-	const secondaryCursor = useRef<HTMLDivElement>(null);
+	const secondaryCursor = useRef<HTMLElement | HTMLDivElement>(null);
 
 	const [showCursor, setShowCursor] = useState(true);
 
@@ -40,8 +40,10 @@ const CustomCursor = () => {
 
 			const rect = secondaryCursor.current?.getBoundingClientRect();
 
-			positionRef.current.mouseX = mouseX - secondaryCursor.current!.clientWidth! / 2;
-			positionRef.current.mouseY = mouseY - secondaryCursor.current!.clientHeight! / 2;
+			if (!secondaryCursor.current || !secondaryCursor.current.clientWidth) return;
+
+			positionRef.current.mouseX = mouseX - secondaryCursor.current?.clientWidth / 2;
+			positionRef.current.mouseY = mouseY - secondaryCursor.current?.clientHeight / 2;
 			mainCursor.current!.style!.transform = `translate3d(${mouseX - mainCursor.current!.clientWidth / 2}px, ${
 				mouseY - mainCursor.current!.clientHeight / 2
 			}px, 0)`;
@@ -52,7 +54,7 @@ const CustomCursor = () => {
 
 	useEffect(() => {
 		const followMouse = () => {
-			if (!secondaryCursor.current && !secondaryCursor.current!.style) return;
+			if (!secondaryCursor.current || !secondaryCursor.current?.style) return;
 			positionRef.current.key = requestAnimationFrame(followMouse);
 			const { mouseX, mouseY, destinationX, destinationY, distanceX, distanceY } = positionRef.current;
 			if (!destinationX || !destinationY) {
