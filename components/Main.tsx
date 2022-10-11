@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import splash from '../public/images/splashbad.png';
 import photo from '../public/images/jesus1.png';
@@ -36,7 +36,7 @@ function Main() {
 
 	const textRef = useRef<HTMLSpanElement>(null);
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		initGsap();
 	});
 
