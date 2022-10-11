@@ -28,7 +28,7 @@
 	}
 
 	.btns {
-		@apply w-full relative left-[120px];
+		@apply w-full relative;
 
 		button {
 			@apply cursor-none text-[20px] font-medium text-[#F63030] bg-[#3d535f] px-2 py-1 m-4 tracking-wider capitalize shadow-sm shadow-white;
@@ -37,10 +37,13 @@
 	}
 
 	.imgbox {
-		@apply relative h-full w-full;
-		img {
-			@apply relative h-full w-[calc(130%-80px)] top-[-40px] right-[10px];
-			/*rotate-180*/
+		@apply relative h-full w-full py-20;
+		.img {
+			@apply relative w-[50%] top-20 left-20 justify-center;
+		}
+
+		#splash {
+			@apply absolute top-[20%] h-full w-[100%] -left-20;
 		}
 	}
 }

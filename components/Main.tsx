@@ -1,33 +1,53 @@
-import gsap from 'gsap';
-import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
-import jinx from '../public/images/jinx5.jpg';
+import Image from 'next/image';
+import splash from '../public/images/splashbad.png';
+import photo from '../public/images/jesus1.png';
+import { init } from 'ityped';
+import gsap from 'gsap';
 
 function Main() {
 	const bgRef = useRef<HTMLDivElement>(null);
-	const t1 = gsap.timeline({});
+	const t1 = gsap.timeline({ repeat: -1 });
+	const t2 = gsap.timeline({ repeat: -1 });
 
-	const rotateImg = async () => {
-		await t1.to(bgRef.current!, {
-			scale: 0.4,
-			y: '-40px',
-			x: '20px',
-			duration: 1,
-		});
+	const initGsap = async () => {
+		await t1
+			.to('#splash', {
+				scale: 0.9,
+				duration: 2,
+			})
+			.to('#splash', {
+				scale: 1,
+				duration: 2,
+			});
+		await t2
+			.to('#photo', {
+				scale: 0.9,
+				x: -5,
+				y: -1,
+				duration: 2,
+			})
+			.to('#photo', {
+				x: 0,
+				y: 0,
+				duration: 2,
+			});
 	};
 
-	const rotateImgRevert = async () => {
-		await t1.to(bgRef.current!, {
-			scale: 1,
-			y: 0,
-			x: 0,
-			borderRadius: 0,
-			rotation: '0',
-			duration: 1,
-		});
-	};
+	const textRef = useRef<HTMLSpanElement>(null);
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		initGsap();
+		return () =>
+			init(textRef.current!, {
+				startDelay: 300,
+				backDelay: 1500,
+				typeSpeed: 200,
+				backSpeed: 100,
+				showCursor: true,
+				strings: ['Jesus', 'Coder', 'Developer.', 'Fronend.', 'Backend'],
+			});
+	});
 
 	return (
 		<div className='h-screen w-screen flex items-center justify-center mb-12 bg-fixed bg-center bg-cover custom-img'>
@@ -35,21 +55,27 @@ function Main() {
 				<div className='bg-main-img absolute' ref={bgRef}></div>
 			</div>
 			<div id='home' className='w-full h-screen text-center rounded-xl '>
-				<div className='w-full h-full mx-auto p-2 flex justify-center items-center'>
-					<div>
-						<p className='uppercase text-sm tracking-widest md:text-gray-100 lg:text-gray-400'>
-							LET&#39;S BUILD SOMETHING TOGETHER
-						</p>
-						<h1 className='py-4 text-white'>
-							Hi, I&#39;m{' '}
-							{/* <span className='text-cyan-300' onMouseOver={rotateImg} onMouseLeave={rotateImgRevert}>
-								Jesus Rafael
-							</span> */}
+				<div className='wrapper'>
+					<div className='cols cols0'>
+						<div className='imgbox'>
+							<div id='splash' className='img'>
+								<Image src={splash} alt='' className='rotate-90' />
+							</div>
+							<div id='photo' className='img'>
+								<Image src={photo} alt='Jesus' layout='responsive' />
+							</div>
+						</div>
+					</div>
+					<div className='cols cols1'>
+						<span className='topline'>Hello</span>
+						<h1 className='py-5'>
+							{"I'm "}
+							<span className='multiText' ref={textRef}></span>
 						</h1>
-						<h1 className='py-2 text-white'>A Web Developer</h1>
-						<p className='py-4 text-gray-400 sm:max-w-[70%] m-auto'>
-							I’m focused on building web applications while learning new technologies.
-						</p>
+						<p>I’m focused on building web applications while learning new technologies.</p>
+						<div className='btns'>
+							<button>Download CV</button>
+						</div>
 					</div>
 				</div>
 			</div>
