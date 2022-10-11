@@ -39,6 +39,7 @@ function Main() {
 	useEffect(() => {
 		initGsap();
 		return () =>
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 			init(textRef.current!, {
 				startDelay: 300,
 				backDelay: 1500,

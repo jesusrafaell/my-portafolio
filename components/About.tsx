@@ -37,13 +37,13 @@ function About() {
 					LET&#39;S BUILD SOMETHING TOGETHER
 				</p>
 				<h1 className='py-4 text-white'>
-					Hi, I&#39;m a //
+					Hi, I&#39;m a
 					<span
 						className='text-cyan-300'
+						//onmouseleave={rotateimgrevert}
 						//onmouseover={rotateimg}
-						//</h1>onmouseleave={rotateimgrevert}
 					>
-						// Jesus Rafael //{' '}
+						Jesus Rafael
 					</span>
 				</h1>
 				<h1 className='py-2 text-white'>Web Developer</h1>
