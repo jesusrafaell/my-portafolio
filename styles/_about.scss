@@ -7,12 +7,16 @@
 		}
 
 		p {
-			@apply block w-[90%] text-sm text-[#E2E2E2];
+			@apply block text-sm text-[#E2E2E2];
 		}
 	}
 
 	.cols {
 		@apply w-[50%];
+	}
+
+	.cols1 {
+		@apply flex items-start flex-col;
 	}
 
 	.topline {
@@ -28,7 +32,7 @@
 	}
 
 	.btns {
-		@apply w-full relative;
+		@apply w-full relative mt-20;
 
 		button {
 			@apply cursor-none text-[20px] font-medium text-[#F63030] bg-[#3d535f] px-2 py-1 m-4 tracking-wider capitalize shadow-sm shadow-white;

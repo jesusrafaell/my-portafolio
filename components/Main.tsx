@@ -4,34 +4,30 @@ import splash from '../public/images/splashbad.png';
 import photo from '../public/images/jesus1.png';
 import { init } from 'ityped';
 import gsap from 'gsap';
+import { TypeAnimation } from 'react-type-animation';
 
 function Main() {
 	const bgRef = useRef<HTMLDivElement>(null);
 	const t1 = gsap.timeline({ repeat: -1 });
 	const t2 = gsap.timeline({ repeat: -1 });
 
-	const initGsap = async () => {
-		await t1
-			.to('#splash', {
-				scale: 0.9,
-				duration: 2,
-			})
-			.to('#splash', {
-				scale: 1,
-				duration: 2,
-			});
-		await t2
-			.to('#photo', {
-				scale: 0.9,
-				x: -5,
-				y: -1,
-				duration: 2,
-			})
-			.to('#photo', {
-				x: 0,
-				y: 0,
-				duration: 2,
-			});
+	const initGsap = () => {
+		t1.to('#splash', {
+			scale: 0.9,
+			duration: 2,
+		}).to('#splash', {
+			scale: 1,
+			duration: 2,
+		});
+		t2.to('#photo', {
+			x: 10,
+			y: 10,
+			duration: 1.5,
+		}).to('#photo', {
+			x: 0,
+			y: 0,
+			duration: 1.5,
+		});
 	};
 
 	const textRef = useRef<HTMLSpanElement>(null);
@@ -41,16 +37,16 @@ function Main() {
 	});
 
 	useEffect(() => {
-		return () =>
-			// eslint-disable-next-line react-hooks/exhaustive-deps
-			init(textRef.current!, {
-				startDelay: 300,
-				backDelay: 1500,
-				typeSpeed: 200,
-				backSpeed: 100,
-				showCursor: true,
-				strings: ['Jesus', 'Coder', 'Developer.', 'Fronend.', 'Backend'],
-			});
+		// return () =>
+		// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// 	init(textRef.current!, {
+		// 		startDelay: 300,
+		// 		backDelay: 1500,
+		// 		typeSpeed: 200,
+		// 		backSpeed: 100,
+		// 		showCursor: true,
+		// 		strings: ['Jesus', 'Coder', 'Developer.', 'Fronend.', 'Backend'],
+		// 	});
 	});
 
 	return (
@@ -74,7 +70,25 @@ function Main() {
 						<span className='topline'>Hello</span>
 						<h1 className='py-5'>
 							{"I'm "}
-							<span className='multiText' ref={textRef}></span>
+							<TypeAnimation
+								sequence={[
+									'Jesus.',
+									2500,
+									'Developer.',
+									2000,
+									'FullStack',
+									2000,
+									'Coder',
+									2000,
+									// () => {
+									// 	console.log('Done typing!');
+									// },
+								]}
+								className='multiText'
+								wrapper='span'
+								cursor={true}
+								repeat={Infinity}
+							/>
 						</h1>
 						<p>I’m focused on building web applications while learning new technologies.</p>
 						<div className='btns'>
