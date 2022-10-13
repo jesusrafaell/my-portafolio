@@ -43,7 +43,11 @@
 	.imgbox {
 		@apply relative h-full w-full py-20;
 		.img {
-			@apply relative w-[50%] top-20 left-20 justify-center;
+			@apply relative justify-center items-center;
+		}
+
+		#photo {
+			@apply w-[40%] top-20 left-[20%];
 		}
 
 		#splash {

@@ -62,7 +62,7 @@ function Main() {
 								<Image src={splash} alt='' className='rotate-90' />
 							</div>
 							<div id='photo' className='img'>
-								<Image src={photo} alt='Jesus' layout='responsive' />
+								<Image src={photo} alt='Jesus' />
 							</div>
 						</div>
 					</div>
