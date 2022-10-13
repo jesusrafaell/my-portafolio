@@ -1,9 +1,9 @@
 @layer base {
 	.wrapper {
-		@apply flex w-full h-full justify-center items-center px-40 py-10 overflow-hidden;
+		@apply flex w-full h-full justify-center items-center px-5 py-10 overflow-hidden;
 
 		h1 {
-			@apply block text-6xl font-extrabold text-[#E2E2E2];
+			@apply block text-4xl font-extrabold text-[#E2E2E2];
 		}
 
 		p {
@@ -35,7 +35,7 @@
 		@apply w-full relative mt-20;
 
 		button {
-			@apply cursor-none text-[20px] font-medium text-[#F63030] bg-[#3d535f] px-2 py-1 m-4 tracking-wider capitalize shadow-sm shadow-white;
+			@apply cursor-none text-[1rem] font-medium text-[#F63030] bg-[#3d535f] px-2 py-1 m-4 tracking-wider capitalize shadow-sm shadow-white;
 			@apply hover:bg-[#F63030] hover:text-[#3d535f];
 		}
 	}
@@ -49,5 +49,14 @@
 		#splash {
 			@apply absolute top-[20%] h-full w-[100%] -left-20;
 		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.cols0 {
+		display: none;
+	}
+	.cols {
+		@apply w-full;
 	}
 }
