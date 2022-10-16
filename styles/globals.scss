@@ -72,6 +72,6 @@
 	}
 
 	section {
-		@apply w-screen h-screen;
+		@apply w-screen h-screen max-h-screen max-w-screen;
 	}
 }
