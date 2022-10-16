@@ -4,6 +4,7 @@ import Image from 'next/image';
 import About from '../components/About';
 import Development from '../components/Development';
 import Main from '../components/Main';
+import Projects from '../components/Projects';
 
 const Home: NextPage = () => {
 	return (
@@ -14,10 +15,13 @@ const Home: NextPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<section id='main' className='h:bg-[#111] w-screen h-screen'>
+			<section id='main' className='h:bg-[#111]'>
 				<Main />
 			</section>
-			<section id='about' className='h-screen w-screen'>
+			<section id='project' className='relative'>
+				<Projects />
+			</section>
+			<section id='about'>
 				<About />
 			</section>
 			<section id='dev' className='relative'>
