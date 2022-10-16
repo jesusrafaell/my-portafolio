@@ -1,56 +1,72 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
+import Image, { StaticImageData } from 'next/image';
+//Companys
 import img_rdinamico_1 from '../public/projects/r2_edit.png';
-import Image from 'next/image';
+import logoCarropago from '../public/projects/logo-carropago.png';
+import logoLibrepago from '../public/projects/logo-librepago.png';
+//Tech
+import nestLogo from '../public/images/nest-logo.svg';
+import reactLogo from '../public/images/react-logo.svg';
+import nodeLogo from '../public/images/nodejs-logo.png';
 
 interface Item {
-	img: any;
-	category: string;
+	img: StaticImageData;
+	imgTech: StaticImageData;
+	developments: string;
 	title: string;
-	price: string;
+	desc: string;
 	bgColor: string;
 	textColor: string;
 }
 
 const items: Item[] = [
 	{
-		img: img_rdinamico_1,
-		category: 'electrics',
 		title: 'Sitran',
-		price: 'FullStack',
+		img: img_rdinamico_1,
+		imgTech: reactLogo,
+		developments: 'React(Hooks - Redux), express, Node, TypeOrm, TypeScript, Axios, Material UI, SQL',
+		desc: `
+			Aplicación FullStack para generar reportes de transacciones e
+			información de clientes bancarios, carga de archivos en base de datos (SQL).
+		`,
 		bgColor: '#30c9f6',
 		textColor: '#fff',
 	},
 	{
 		img: img_rdinamico_1,
-		category: 'classic',
+		developments: 'classic',
+		imgTech: reactLogo,
 		title: 'BackOffice',
-		price: '£300',
+		desc: '£300',
 		bgColor: '#ffe474',
 		textColor: '#000',
 	},
 	{
-		img: img_rdinamico_1,
-		category: 'living',
+		img: logoCarropago,
+		developments: 'living',
+		imgTech: nodeLogo,
 		title: 'API CarroPago',
-		price: '£420',
+		desc: '£420',
 		bgColor: '#ACCDD4',
 		textColor: '#000',
 	},
 	{
-		img: img_rdinamico_1,
-		category: 'watch',
+		img: logoLibrepago,
+		developments: 'watch',
 		title: 'API LibrePago',
-		price: '£267',
+		imgTech: nestLogo,
+		desc: '£267',
 		bgColor: '#dedede',
 		textColor: '#fff',
 	},
 	{
 		img: img_rdinamico_1,
-		category: 'watch',
+		developments: 'watch',
 		title: 'Punto Consulta Tranred',
-		price: '£267',
+		imgTech: reactLogo,
+		desc: '£267',
 		bgColor: '#dedede',
 		textColor: '#fff',
 	},
@@ -61,7 +77,7 @@ function Projects() {
 
 	const [active, setActive] = useState(0);
 	const [item, setItem] = useState(items[active]);
-	const { img, category, title, price } = item;
+	const { img, developments, title, desc, imgTech } = item;
 
 	const basicAimation = (dir: number, delay: number, newItem: Item) => {
 		timeLine.to('.slider', {
@@ -86,7 +102,7 @@ function Projects() {
 				}
 			)
 			.fromTo(
-				['.slider__context *', '.slider_title'],
+				['.slider__context *', '.gsap-dev'],
 				{
 					x: 50 * dir,
 					opacity: 0,
@@ -133,7 +149,7 @@ function Projects() {
 			},
 		});
 		timeLine.to(
-			['.slider_title', ' .slider__context *'],
+			['.gsap-dev', ' .slider__context *'],
 			{
 				x: -100 * dir,
 				opacity: 0,
@@ -150,15 +166,19 @@ function Projects() {
 			<div className='inner-container'>
 				<div className='slider__wrraper flex-column'>
 					<div className='flex-column slider__content'>
-						<h2 className='slider_title'>{title}</h2>
+						<h2 className='slider_title gsap-dev'>{title}</h2>
+						<div className='slider__tech gsap-dev'>
+							<Image src={imgTech} alt={title} layout='intrinsic' />
+						</div>
 						<div className='slider__img'>
 							<Image src={img} alt={title} layout='intrinsic' />
 						</div>
 						{/* <img className='slider__img' src={img} alt={title} /> */}
 						<div className='slider__context flex-column'>
-							<h3 className='slider__category'>{category}</h3>
-							<strong className='slider__title'>{title}</strong>
-							<small className='slider__price'>{price}</small>
+							<p className='slider__desc'>{desc}</p>
+							<p className='slider__techs'>
+								<span>Teconologias:</span> {developments}
+							</p>
 						</div>
 					</div>
 					{/* <div className='slider__footer'>

@@ -34,11 +34,20 @@
 	}
 	.slider__img {
 		width: 20rem;
-		align-self: center;
+		align-self: flex-end;
 		margin-bottom: 1.7rem;
 	}
+	.slider__tech {
+		position: absolute;
+		max-width: 8rem;
+		left: 10%;
+		bottom: 10%;
+		overflow: hidden;
+	}
+
 	.slider__context {
 		font-weight: 900;
+		z-index: 2;
 		font-size: 1.55rem;
 		width: fit-content;
 		margin-bottom: 1.5rem;
@@ -54,11 +63,25 @@
 		letter-spacing: 0.05em;
 		color: #fff;
 	}
-	.slider__price {
+	.slider__desc {
+		/*width: 50%;*/
 		font-size: 0.5em;
-		font-weight: lighter;
+		font-weight: 300;
 		font-family: sans-serif;
+		text-transform: none;
 	}
+
+	.slider__techs {
+		/*width: 50%;*/
+		font-size: 0.5em;
+		font-weight: 300;
+		font-family: sans-serif;
+		text-transform: none;
+		span {
+			font-weight: 700;
+		}
+	}
+
 	.context {
 		display: flex;
 		font-weight: 900;
@@ -80,6 +103,7 @@
 		}
 		.slider__context {
 			font-size: 1.8rem;
+			width: 50%;
 		}
 		.slider__index {
 			visibility: visible;
@@ -145,6 +169,9 @@
 
 .slider_title {
 	display: flex;
-	justify-content: center;
+	font-weight: 400;
+	letter-spacing: 2px;
+	justify-content: start;
+	margin-left: 2rem;
 	z-index: 7;
 }

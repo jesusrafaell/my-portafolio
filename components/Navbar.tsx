@@ -54,7 +54,7 @@ function Navbar() {
 						</li>
 						<li>
 							<Link activeClass='active' to='project' spy smooth offset={0} duration={500} className='nav-item'>
-								Projects
+								Developments
 							</Link>
 						</li>
 						<li>
@@ -62,11 +62,11 @@ function Navbar() {
 								About
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<Link activeClass='active' to='dev' spy smooth offset={0} duration={500} className='nav-item'>
 								Developments
 							</Link>
-						</li>
+						</li> */}
 						{/* <li>
 							<a href='#' className='nav-item' aria-current='page'>
 								Contact
