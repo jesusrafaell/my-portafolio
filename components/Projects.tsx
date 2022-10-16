@@ -10,6 +10,7 @@ import logoLibrepago from '../public/projects/logo-librepago.png';
 import nestLogo from '../public/images/nest-logo.svg';
 import reactLogo from '../public/images/react-logo.svg';
 import nodeLogo from '../public/images/nodejs-logo.png';
+import CSSRulePlugin from 'gsap/dist/CSSRulePlugin';
 
 interface Item {
 	img: StaticImageData;
@@ -74,6 +75,10 @@ const items: Item[] = [
 
 function Projects() {
 	const timeLine = gsap.timeline();
+
+	useEffect(() => {
+		gsap.registerPlugin(CSSRulePlugin);
+	});
 
 	const [active, setActive] = useState(0);
 	const [item, setItem] = useState(items[active]);
@@ -161,27 +166,44 @@ function Projects() {
 		);
 	};
 
+	const handleAnimationBg = () => {
+		console.log('rotation bg');
+		timeLine.to(CSSRulePlugin.getRule('.slider:before'), {
+			top: '80%',
+			transform: 'skewY(390deg)',
+		});
+	};
+
+	const handleAnimationBgBack = () => {
+		console.log('rotation bg');
+		timeLine.to(CSSRulePlugin.getRule('.slider:before'), {
+			top: '-50%',
+			transform: 'skewY(340deg)',
+		});
+	};
+
 	return (
-		<div className='slider'>
-			<div className='inner-container'>
-				<div className='slider__wrraper flex-column'>
-					<div className='flex-column slider__content'>
-						<h2 className='slider_title gsap-dev'>{title}</h2>
-						<div className='slider__tech gsap-dev'>
-							<Image src={imgTech} alt={title} layout='intrinsic' />
+		<div className='content-slider'>
+			<div className='slider'>
+				<div className='inner-container'>
+					<div className='slider__wrraper flex-column'>
+						<div className='flex-column slider__content'>
+							<h2 className='slider_title gsap-dev'>{title}</h2>
+							<div className='slider__tech gsap-dev'>
+								<Image src={imgTech} alt={title} layout='intrinsic' />
+							</div>
+							<div className='slider__img' onMouseEnter={handleAnimationBg} onMouseLeave={handleAnimationBgBack}>
+								<Image src={img} alt={title} layout='intrinsic' />
+							</div>
+							{/* <img className='slider__img' src={img} alt={title} /> */}
+							<div className='slider__context flex-column'>
+								<p className='slider__desc'>{desc}</p>
+								<p className='slider__techs'>
+									<span>Teconologias:</span> {developments}
+								</p>
+							</div>
 						</div>
-						<div className='slider__img'>
-							<Image src={img} alt={title} layout='intrinsic' />
-						</div>
-						{/* <img className='slider__img' src={img} alt={title} /> */}
-						<div className='slider__context flex-column'>
-							<p className='slider__desc'>{desc}</p>
-							<p className='slider__techs'>
-								<span>Teconologias:</span> {developments}
-							</p>
-						</div>
-					</div>
-					{/* <div className='slider__footer'>
+						{/* <div className='slider__footer'>
 						<div className='slider__btns justify-between'>
 							<button className='slider__btn-buy'>buy</button>
 							 <div className='flex-center'>
@@ -199,17 +221,18 @@ function Projects() {
 						</div>
 						<div className='slider__index'></div>
 					</div> */}
+					</div>
+					{/* l */}
+					<div className='slideshow-navigation'>
+						<button onClick={(e) => handleClick('prev')} className='slideshow-navigation-button prev'>
+							<span className='button-arrow'>‹</span>
+						</button>
+						<button onClick={(e) => handleClick('next')} className='slideshow-navigation-button next'>
+							<span className='button-arrow'>›</span>
+						</button>
+					</div>
+					{/* l */}
 				</div>
-				{/* l */}
-				<div className='slideshow-navigation'>
-					<button onClick={(e) => handleClick('prev')} className='slideshow-navigation-button prev'>
-						<span className='button-arrow'>‹</span>
-					</button>
-					<button onClick={(e) => handleClick('next')} className='slideshow-navigation-button next'>
-						<span className='button-arrow'>›</span>
-					</button>
-				</div>
-				{/* l */}
 			</div>
 		</div>
 	);

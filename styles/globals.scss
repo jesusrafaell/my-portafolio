@@ -8,9 +8,26 @@
 @import './Cover3D/cover3d.scss';
 @import './projects.scss';
 
+@font-face {
+	font-family: 'Gravity-Bold';
+	src: url('../fonts/Gravity-Bold.otf');
+}
+@font-face {
+	font-family: 'Gravity-Regular';
+	src: url('../fonts/Gravity-Regular.otf');
+}
+@font-face {
+	font-family: 'Gravity-Light';
+	src: url('../fonts/Gravity-Light.otf');
+}
+@font-face {
+	font-family: 'Gravity-Book';
+	src: url('../fonts/Gravity-Book.otf');
+}
+
 @layer base {
 	* {
-		@apply cursor-none;
+		@apply cursor-none font-gravity-regular;
 	}
 
 	body {
@@ -23,7 +40,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-bold;
+		@apply font-bold font-gravity-bold;
 	}
 
 	h1 {
@@ -67,11 +84,11 @@
 	}
 
 	.nav-item {
-		@apply block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-100 font-normal;
+		@apply block py-2 pr-4 pl-3 rounded md:bg-transparent md:p-0 text-gray-100 font-gravity-book;
 		@apply hover:line-through hover:animate-pulse;
 	}
 
 	section {
-		@apply w-screen h-screen max-h-screen max-w-screen;
+		@apply w-screen h-screen max-h-screen;
 	}
 }
