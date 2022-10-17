@@ -118,7 +118,6 @@ const items: Item[] = [
 		desc: '£267',
 		//bgColor: '#dedede',
 		//textColor: '#fff',
-
 		color: {
 			active: {
 				text: '#fff',
@@ -248,20 +247,10 @@ function Projects() {
 
 	const handleAnimationBg = () => {
 		setBgAnimation(true);
-		// console.log('rotation bg');
-		// timeLine.to(CSSRulePlugin.getRule('.slider:before'), {
-		// 	top: '80%',
-		// 	transform: 'skewY(390deg)',
-		// });
 	};
 
 	const handleAnimationBgBack = () => {
 		setBgAnimation(false);
-		// console.log('rotation bg');
-		// timeLine.to(CSSRulePlugin.getRule('.slider:before'), {
-		// 	top: '-50%',
-		// 	transform: 'skewY(340deg)',
-		// });
 	};
 	console.log(bgAnimation);
 
@@ -270,7 +259,9 @@ function Projects() {
 			<div className={bgAnimation ? 'slider slider_ative' : 'slider'}>
 				<div className='inner-container'>
 					<div className='slider__wrraper flex-column'>
-						<h2 className='slider_title'>{title}</h2>
+						<h2 className='slider_title' style={{ color: bgAnimation ? '#000' : '#fff' }}>
+							{title}
+						</h2>
 						<div className='flex-column slider__content'>
 							<div className='slider__tech gsap-dev'>
 								<Image src={imgTech} alt={title} layout='intrinsic' />
@@ -278,7 +269,6 @@ function Projects() {
 							<div className='slider__img' onMouseEnter={handleAnimationBg} onMouseLeave={handleAnimationBgBack}>
 								<Image src={img} alt={title} layout='intrinsic' />
 							</div>
-							{/* <img className='slider__img' src={img} alt={title} /> */}
 							<div className='slider__context flex-column'>
 								<p className='slider__desc'>{desc}</p>
 								<p className='slider__techs'>
@@ -286,26 +276,7 @@ function Projects() {
 								</p>
 							</div>
 						</div>
-						{/* <div className='slider__footer'>
-						<div className='slider__btns justify-between'>
-							<button className='slider__btn-buy'>buy</button>
-							 <div className='flex-center'>
-								<button
-									data-type='prev'
-									className='slider__btn-switch slider__btn-switch--dark flex-center'
-									onClick={(e) => handleClick('prev')}
-								></button>
-								<button
-									data-type='next'
-									className='slider__btn-switch slider__btn-switch--light flex-center'
-									onClick={(e) => handleClick('next')}
-								></button>
-							</div> 
-						</div>
-						<div className='slider__index'></div>
-					</div> */}
 					</div>
-					{/* l */}
 					<div className='slideshow-navigation'>
 						<button onClick={(e) => handleClick('prev')} className='slideshow-navigation-button prev'>
 							<span className='button-arrow'>‹</span>
@@ -314,7 +285,6 @@ function Projects() {
 							<span className='button-arrow'>›</span>
 						</button>
 					</div>
-					{/* l */}
 				</div>
 			</div>
 		</div>

@@ -169,6 +169,7 @@
 		font-size: 3.5rem;
 		letter-spacing: 2px;
 		z-index: 7;
+		transition: width 2s linear 1s;
 	}
 
 	@media (min-width: 600px) {
