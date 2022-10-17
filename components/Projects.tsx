@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import Image, { StaticImageData } from 'next/image';
 //Companys
-import img_rdinamico_1 from '../public/projects/r2_edit.png';
+import img_sitran_1 from '../public/projects/sitran_1.png';
 import logoCarropago from '../public/projects/logo-carropago.png';
 import logoLibrepago from '../public/projects/logo-librepago.png';
 //Tech
@@ -18,31 +18,58 @@ interface Item {
 	developments: string;
 	title: string;
 	desc: string;
-	bgColor: string;
-	textColor: string;
+	color: {
+		active: {
+			text: string;
+			bg: string;
+		};
+		normal: {
+			text: string;
+			bg: string;
+		};
+	};
 }
 
 const items: Item[] = [
 	{
 		title: 'Sitran',
-		img: img_rdinamico_1,
+		img: img_sitran_1,
 		imgTech: reactLogo,
 		developments: 'React(Hooks - Redux), express, Node, TypeOrm, TypeScript, Axios, Material UI, SQL',
 		desc: `
 			Aplicación FullStack para generar reportes de transacciones e
 			información de clientes bancarios, carga de archivos en base de datos (SQL).
 		`,
-		bgColor: '#30c9f6',
-		textColor: '#fff',
+		color: {
+			active: {
+				text: '#fff',
+				bg: '#000',
+			},
+			normal: {
+				text: '#30c9f6',
+				bg: '#121417',
+			},
+		},
 	},
 	{
-		img: img_rdinamico_1,
+		img: img_sitran_1,
 		developments: 'classic',
 		imgTech: reactLogo,
 		title: 'BackOffice',
 		desc: '£300',
-		bgColor: '#ffe474',
-		textColor: '#000',
+		//bgColor: '#ffe474',
+		//textColor: '#fff',
+
+		color: {
+			active: {
+				text: '#fff',
+				bg: '#000',
+			},
+			normal: {
+				text: '#30c9f6',
+				bg: '#121417',
+			},
+		},
 	},
 	{
 		img: logoCarropago,
@@ -50,8 +77,18 @@ const items: Item[] = [
 		imgTech: nodeLogo,
 		title: 'API CarroPago',
 		desc: '£420',
-		bgColor: '#ACCDD4',
-		textColor: '#000',
+		//bgColor: '#ACCDD4',
+		//textColor: '#fff',
+		color: {
+			active: {
+				text: '#fff',
+				bg: '#000',
+			},
+			normal: {
+				text: '#30c9f6',
+				bg: '#121417',
+			},
+		},
 	},
 	{
 		img: logoLibrepago,
@@ -59,17 +96,39 @@ const items: Item[] = [
 		title: 'API LibrePago',
 		imgTech: nestLogo,
 		desc: '£267',
-		bgColor: '#dedede',
-		textColor: '#fff',
+		//bgColor: '#dedede',
+		//textColor: '#fff',
+
+		color: {
+			active: {
+				text: '#fff',
+				bg: '#000',
+			},
+			normal: {
+				text: '#30c9f6',
+				bg: '#121417',
+			},
+		},
 	},
 	{
-		img: img_rdinamico_1,
+		img: img_sitran_1,
 		developments: 'watch',
 		title: 'Punto Consulta Tranred',
 		imgTech: reactLogo,
 		desc: '£267',
-		bgColor: '#dedede',
-		textColor: '#fff',
+		//bgColor: '#dedede',
+		//textColor: '#fff',
+
+		color: {
+			active: {
+				text: '#fff',
+				bg: '#000',
+			},
+			normal: {
+				text: '#30c9f6',
+				bg: '#121417',
+			},
+		},
 	},
 ];
 
@@ -124,6 +183,25 @@ function Projects() {
 					ease: 'power2.out',
 				},
 				'<'
+			)
+			.fromTo(
+				'.slider_title',
+				{
+					y: 100,
+					ease: 'power4.out',
+					skewY: 7,
+					stagger: {
+						amount: 0.3,
+					},
+				},
+				{
+					y: 0,
+					skewY: 0,
+					opacity: 1,
+					duration: 0.7,
+					stagger: 0.15,
+					ease: 'power2.out',
+				}
 			);
 	};
 
@@ -154,7 +232,7 @@ function Projects() {
 			},
 		});
 		timeLine.to(
-			['.gsap-dev', ' .slider__context *'],
+			['.gsap-dev', '.slider_title', ' .slider__context *'],
 			{
 				x: -100 * dir,
 				opacity: 0,
@@ -166,29 +244,34 @@ function Projects() {
 		);
 	};
 
+	const [bgAnimation, setBgAnimation] = useState(false);
+
 	const handleAnimationBg = () => {
-		console.log('rotation bg');
-		timeLine.to(CSSRulePlugin.getRule('.slider:before'), {
-			top: '80%',
-			transform: 'skewY(390deg)',
-		});
+		setBgAnimation(true);
+		// console.log('rotation bg');
+		// timeLine.to(CSSRulePlugin.getRule('.slider:before'), {
+		// 	top: '80%',
+		// 	transform: 'skewY(390deg)',
+		// });
 	};
 
 	const handleAnimationBgBack = () => {
-		console.log('rotation bg');
-		timeLine.to(CSSRulePlugin.getRule('.slider:before'), {
-			top: '-50%',
-			transform: 'skewY(340deg)',
-		});
+		setBgAnimation(false);
+		// console.log('rotation bg');
+		// timeLine.to(CSSRulePlugin.getRule('.slider:before'), {
+		// 	top: '-50%',
+		// 	transform: 'skewY(340deg)',
+		// });
 	};
+	console.log(bgAnimation);
 
 	return (
 		<div className='content-slider'>
-			<div className='slider'>
+			<div className={bgAnimation ? 'slider slider_ative' : 'slider'}>
 				<div className='inner-container'>
 					<div className='slider__wrraper flex-column'>
+						<h2 className='slider_title'>{title}</h2>
 						<div className='flex-column slider__content'>
-							<h2 className='slider_title gsap-dev'>{title}</h2>
 							<div className='slider__tech gsap-dev'>
 								<Image src={imgTech} alt={title} layout='intrinsic' />
 							</div>
